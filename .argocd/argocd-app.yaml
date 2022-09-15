@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:kaikiat/argocd-github.git
+    path: .argocd-repositories/flask-app
+  destination:
+    namespace: argocd
+  syncPolicy:
+    automated: {}
